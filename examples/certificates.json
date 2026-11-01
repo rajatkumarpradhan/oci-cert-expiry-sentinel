@@ -1,0 +1,53 @@
+{
+  "certificates": [
+    {
+      "name": "api-prod-cert",
+      "compartment": "Production",
+      "issuer": "CN=Example CA G3",
+      "not_before": "2026-01-15T00:00:00Z",
+      "not_after": "2026-11-05T00:00:00Z",
+      "signature_algorithm": "sha256WithRSAEncryption",
+      "key_algorithm": "RSA",
+      "key_size": 2048,
+      "sans": ["api.example.com", "www.example.com"]
+    },
+    {
+      "name": "legacy-portal-cert",
+      "compartment": "Legacy",
+      "issuer": "CN=Old CA",
+      "not_before": "2024-06-01T00:00:00Z",
+      "not_after": "2026-10-20T00:00:00Z",
+      "signature_algorithm": "sha1WithRSAEncryption",
+      "key_algorithm": "RSA",
+      "key_size": 1024,
+      "sans": ["portal.old-example.com"]
+    },
+    {
+      "name": "wildcard-sandbox",
+      "compartment": "Sandbox",
+      "issuer": "CN=Example CA G3",
+      "not_before": "2026-05-01T00:00:00Z",
+      "not_after": "2027-05-01T00:00:00Z",
+      "signature_algorithm": "sha256WithRSAEncryption",
+      "key_algorithm": "RSA",
+      "key_size": 2048,
+      "sans": ["*.sandbox.example.com"]
+    },
+    {
+      "name": "internal-grafana",
+      "compartment": "Sandbox",
+      "issuer": "CN=Internal CA",
+      "not_before": "2026-09-01T00:00:00Z",
+      "not_after": "2026-11-12T00:00:00Z",
+      "signature_algorithm": "sha256WithRSAEncryption",
+      "key_algorithm": "EC",
+      "key_size": 256,
+      "sans": ["grafana.internal"]
+    }
+  ],
+  "listeners": [
+    {"name": "api-listener", "hostname": "api.example.com", "port": 443},
+    {"name": "sandbox-app", "hostname": "app.sandbox.example.com", "port": 443},
+    {"name": "payments-listener", "hostname": "pay.example.com", "port": 443}
+  ]
+}
